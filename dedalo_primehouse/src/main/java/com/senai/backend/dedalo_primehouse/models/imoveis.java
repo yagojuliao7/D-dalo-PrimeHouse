@@ -26,23 +26,19 @@ public class imoveis {
     @Column(name = "bairro_imovel")
     private String bairroImovel;
 
-    @Column(name = "proprietario")
-        private Double proprietario;
     
-
     @OneToMany
-    @JoinColumn(name = "id_imovel")
-    private List<clientes> clientes;
+    @JoinColumn(name = "proprietario")
+    private List <clientes> proprietario;
 
     public imoveis(){
 
     }
-    public imoveis(Integer id, Double valorImovel, String bairroImovel,Double proprietario, List<clientes> clientes){
+    public imoveis(Integer id, Double valorImovel, String bairroImovel, List<clientes> proprietario){
         this.id = id;
         this.valorImovel= valorImovel;
         this.bairroImovel = bairroImovel;
         this.proprietario = proprietario;
-        this.clientes = clientes;
 
     }
     public Integer getId() {
@@ -63,17 +59,12 @@ public class imoveis {
     public void setBairroImovel(String bairroImovel) {
         this.bairroImovel = bairroImovel;
     }
-    public Double getProprietario() {
+    public List<clientes> getProprietario() {
         return proprietario;
     }
-    public void setProprietario(Double proprietario) {
+    public void setProprietario(List<clientes> proprietario) {
         this.proprietario = proprietario;
     }
-    public List<clientes> getClientes() {
-        return clientes;
-    }
-    public void setClientes(List<clientes> clientes) {
-        this.clientes = clientes;
-    }
+
     
 }
